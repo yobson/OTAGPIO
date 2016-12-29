@@ -1,0 +1,6 @@
+*.o
+.flavor
+.objs
+OTAGPIO.so
+assets.h
+cert
