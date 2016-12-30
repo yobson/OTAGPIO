@@ -6,6 +6,7 @@
 void initApp(void);
 void shutdownApp(void);
 
+int indexPage(struct http_request *);
 int	pinMode(struct http_request *);
 int pinWrite(struct http_request *);
 int pinRead(struct http_request *);
