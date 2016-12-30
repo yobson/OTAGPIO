@@ -24,6 +24,7 @@ int setPinMode(struct http_request *req)
 	char *mode;
 	http_argument_get_int32(req, "num", &pinNumber);
 	http_argument_get_string(req, "mode", &mode);
+	printf("Setting pin %i to %s mode\n", pinNumber, mode);
 
 	if (strncmp(mode, "READ", 4)) {
 		pinMode(pinNumber, OUTPUT);
@@ -42,6 +43,8 @@ int pinWrite(struct http_request *req)
 	http_argument_get_int32(req, "num", &pinNumber);
 	http_argument_get_int32(req, "state", &state);
 
+	printf("Setting the state of pin %i to %i\n", pinNumber, state);
+
 	digitalWrite(pinNumber, (state == 1) ? HIGH : LOW);
 
 	http_response(req, 200, NULL, 0);
@@ -51,11 +54,16 @@ int pinWrite(struct http_request *req)
 int pinRead(struct http_request *req) {
 	http_populate_get(req);
 	int pinNumber, state;
+	char *ret = malloc(1);
 	http_argument_get_int32(req, "num", &pinNumber);
 
 	state = digitalRead(pinNumber);
+	sprintf(ret, "%i", state);
 
-	http_response(req, 200, (void *) &state, sizeof(int));
+	printf("Reading the stae of pin: %i. It is %i\n", pinNumber, state);
+
+	http_response(req, 200, (void *) ret, 1);
+	free(ret);
 	return KORE_RESULT_OK;
 }
 
