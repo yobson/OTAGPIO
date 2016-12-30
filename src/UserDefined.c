@@ -1,4 +1,5 @@
 #include "UserDefined.h"
+#include <wiringPi.h>
 
 void initUD() {
     atexit(&shutdownUD);
