@@ -68,7 +68,10 @@ int udaction(struct http_request *req)
 	http_argument_get_int32(req, "length", &data.dataSize);
 	http_argument_get_int32(req, "action", &act);
 
-	ret = actions[act](data);
+	if (act < numberOfActions) {ret = actions[act](data);}
+	else {
+		http_response(req, 400, NULL, 0);
+	}
 
 	http_response(req, 200, ret.data, ret.dataSize);
 	return KORE_RESULT_OK;

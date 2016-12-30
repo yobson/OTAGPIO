@@ -6,11 +6,11 @@ typedef struct {
     void *data;
 } Data;
 
-typedef Data (*action)(Data dataFromRequest);
+typedef Data (*UDAction)(Data dataFromRequest);
 
 //Variables
 int numberOfUDActions;
-action *actions;
+UDAction *actions;
 
 //Functions
 void initUD(void);
