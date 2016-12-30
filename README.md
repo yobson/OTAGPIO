@@ -51,6 +51,6 @@ void initUD() {
 **Don't forget to add your functions to the header file**
 
 - [x] Get it going
-- [ ] Write Documentation
+- [x] Write Documentation
 - [ ] Test it
 - [ ] Build .net library for UWP 
