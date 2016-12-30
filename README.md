@@ -36,11 +36,11 @@ typedef struct {
     void *data;
 } Data;
 ```
-Next, find the `void initUD()` function in the `UserDefined.c` file. Change it so that numberOfActions is equal to the number of UDActions you have written, add to the actions array the address of each function. The element of the array will be the ID of your function. For example, if I wanted to have three UDActions name one, two and three, after writing the functions, I would change the `void initUD()` function so that it looked like this:
+Next, find the `void initUD()` function in the `UserDefined.c` file. Change it so that `numberOfUDActions` is equal to the number of UDActions you have written, add to the actions array the address of each function. The element of the array will be the ID of your function. For example, if I wanted to have three UDActions name one, two and three, after writing the functions, I would change the `void initUD()` function so that it looked like this:
 ```c
 void initUD() {
     atexit(&shutdownUD);
-    numberOfUDActions = 0; //Change this to the number of UDActions you have
+    numberOfUDActions = 3; //Change this to the number of UDActions you have
     actions = malloc(sizeof(UDAction) * numberOfUDActions);
     //Add them to the array here;
     actions[0] = &one;
@@ -49,3 +49,8 @@ void initUD() {
 }
 ```
 **Don't forget to add your functions to the header file**
+
+- [x] Get it going
+- [ ] Write Documentation
+- [ ] Test it
+- [ ] Build .net library for UWP 

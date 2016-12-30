@@ -68,7 +68,7 @@ int udaction(struct http_request *req)
 	http_argument_get_int32(req, "length", &data.dataSize);
 	http_argument_get_int32(req, "action", &act);
 
-	if (act < numberOfActions) {ret = actions[act](data);}
+	if (act < numberOfUDActions) {ret = actions[act](data);}
 	else {
 		http_response(req, 400, NULL, 0);
 	}
