@@ -2,7 +2,7 @@
 
 This is a server app written in c (using kore) that will allow remote control (over the air (OTA)) of the GPIO (and some user defined functionality). It will soon be acompnaied by a .net plugin that can use it so you can use it!
 
-##Installation
+## Installation
 1. Install [kore](https://kore.io)
 2. Clone this repo with the command `git clone https://github.com/yobson/OTAGPIO OTAGPIO`
 3. Head into your new OTAGPIO directory.
@@ -14,7 +14,7 @@ This is a server app written in c (using kore) that will allow remote control (o
 9. Type the IP address or Hostname you are using into your browser, there will be a certificate error (becuase we just made a self signed one) but don't worry. Proceed to the site and you should be greeted with a page that says hello world. That means it is working!
 
 
-##Using
+## Using
 I do plan on building a .net plugin so that you can build UWP apps that can connect to the Pi, but I havent got that far yet! You can still use it, but you will need to write a small library yourself. Luckily, all that invloves are some simple get requests. Here is a little table that will describe the different requests supported at the moment:
 
 
@@ -27,7 +27,7 @@ I do plan on building a .net plugin so that you can build UWP apps that can conn
 
 Thats it so far :)
 
-##Adding functionality
+## Adding functionality
 
 Adding functionality is done by creating user defined actions (UDActions). These are added in the `UserDefined.h` and `UserDefined.c` files. To add an action, you should create a new function that has a return type of `Data` and an argument of `Data`. `Data` is a typedef struct with this definiation:
 ```c
